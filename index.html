@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bhuvaneshwari E — Portfolio</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0b0b0b;
+            /* black background */
+            --panel: #0f0f10;
+            --muted: #bfc4c9;
+            --accent: #ffd400;
+            /* yellow */
+            --card: #121214;
+            --glass: rgba(255, 255, 255, 0.02);
+            --radius: 14px;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Base */
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: linear-gradient(180deg, var(--bg), #080808 120%);
+            color: #e9e9e9;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+
+        }
+
+        /* Container */
+        .wrap {
+            max-width: 1100px;
+            margin: 28px auto;
+            padding: 28px;
+        }
+
+        /* NAV / HEADER */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 18px;
+            z-index: 40;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo .photo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .nav-links a {
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--accent);
+            transform: translateY(-2px)
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .intro h1 {
+            margin: 0;
+            font-size: 48px;
+            letter-spacing: 0.2px
+        }
+
+        .intro p.lead {
+            color: var(--muted);
+            margin: 12px 0 18px;
+            font-size: 15px;
+            line-height: 1.5
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), #ffc800);
+            color: #101010;
+            border: 0;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(255, 212, 0, 0.08), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 10px;
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            color: var(--muted)
+        }
+
+        .socials a:hover {
+            transform: translateY(-4px);
+            color: var(--accent)
+        }
+
+        /* Right profile card */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .profile h3 {
+            margin: 0
+        }
+
+        .profile small {
+            color: var(--muted)
+        }
+
+        /* Sections */
+        section.content {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 22px
+        }
+
+        .main {
+            min-height: 120px
+        }
+
+        .aside {
+            display: flex;
+            flex-direction: column;
+            gap: 16px
+        }
+
+        h2.section-title {
+            margin: 0 0 12px 0;
+            color: var(--accent);
+            font-size: 18px;
+            scroll-margin-top: 120px
+        }
+
+        /* Anchor scroll spacing */
+        #about, #skills, #projects, #certificate, #contact {
+            scroll-margin-top: 120px
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px
+        }
+
+        .project-card {
+            padding: 16px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6)
+        }
+
+        .project-card h3 {
+            margin: 0 0 8px 0
+        }
+
+        .tech {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .tech span {
+            font-size: 12px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--muted)
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        .small-btn {
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: transparent;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .small-btn.primary {
+            background: var(--accent);
+            color: #111;
+            border: 0
+        }
+
+        /* Resume card */
+        .resume-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: start
+        }
+
+        .resume-card a {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted)
+        }
+
+        .resume-card a.primary {
+            background: var(--accent);
+            color: #111;
+            border: 0;
+            font-weight: 700
+        }
+
+        /* Contact form */
+        form.contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: transparent;
+            color: var(--muted);
+            outline: none;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px
+        }
+
+        .form-row .col {
+            flex: 1
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 26px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            padding: 30px 0
+        }
+
+        /* Responsive */
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            section.content {
+                grid-template-columns: 1fr
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px
+            }
+
+            .logo {
+                justify-content: center
+            }
+        }
+
+        @media (max-width:520px) {
+            .wrap {
+                padding: 12px
+            }
+
+            .logo h4 {
+                font-size: 14px
+            }
+
+            .profile img {
+                width: 160px;
+                height: 160px
+            }
+        }
+
+        /* subtle entrance animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!-- NAV -->
+        <nav class="nav">
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificate">Certificate</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <main id="home" class="hero">
+            <div class="card intro reveal">
+                <h1>Hi — I'm <span style="color:var(--accent)">Bhuvaneshwari</span></h1>
+                <p class="lead">Mechatronics Engineer focused on robotics, embedded systems, and sustainable product
+                    design. I design and prototype mechanical systems that solve real problems.</p>
+
+
+                <div class="socials" aria-hidden="false" style="margin-top:18px">
+                    <a href="mailto:bhuvaneshwarie.23mts@kongu.edu" title="Email">✉️ Email</a>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7291723531023757312/" target="_blank"
+                        rel="noopener" title="LinkedIn">🔗 LinkedIn</a>
+                    <a href="https://github.com/bhuvaneshwarie" target="_blank" rel="noopener" title="GitHub">💻 GitHub</a>
+                    <a href="resume.pdf" download title="Download Resume">📄 Resume</a>
+                </div>
+            </div>
+
+            <aside class="card profile reveal">
+                <img src="your-photo.jpg" alt="Profile photo">
+            </aside>
+        </main>
+
+        <!-- CONTENT -->
+        <section class="content">
+            <div class="main">
+
+                <!-- ABOUT -->
+                <div id="about" class="card reveal">
+                    <h2 class="section-title">About Me</h2>
+                    <p>I am a passionate Mechatronics Engineering student with interests in robotics, embedded systems,
+                        AI-powered solutions, automation, and innovative product design. I enjoy building prototypes,
+                        working with CAD tools, and contributing to sustainable engineering solutions.</p>
+                </div>
+
+                <!-- SKILLS -->
+                <div id="skills" class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills" style="margin-top:10px">
+                        <div class="skill">SolidWorks</div>
+                        <div class="skill">Robotics</div>
+                        <div class="skill">Embedded Systems</div>
+                        <div class="skill">IoT</div>
+                        <div class="skill">UI/UX</div>
+                        <div class="skill">C Programming</div>
+                        <div class="skill">Relay Logic</div>
+                        <div class="skill">Web Development</div>
+                        <div class="skill">Problem Solving</div>
+                    </div>
+                </div>
+
+                <!-- PROJECTS -->
+                <div id="projects" class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="projects-grid" style="margin-top:12px">
+                        <div class="project-card">
+                            <h3>Non-Electrical Solar Tracker · SMART INDIA HACKATHON ’24</h3>
+                            <p>Mechanical solar tracker design to increase panel efficiency without complex electronics.
+                                Prototype fabrication and field testing.</p>
+                            <div class="tech">
+                                <span>CAD</span><span>Mechanism</span><span>Prototyping</span>
+                            </div>
+                            <div class="project-actions">
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Renewable & Sustainable Energy · IDEATHON ’24</h3>
+                            <p>Concept and prototype for small-scale renewable energy solutions targeted at rural
+                                deployment.</p>
+                            <div class="tech"><span>Concept</span><span>Modeling</span></div>
+                            <div class="project-actions">
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Automated Ceiling Fan Cleaning System</h3>
+                            <p>Design and build of an automated mechanical cleaner to reduce manual maintenance effort
+                                and increase hygiene.</p>
+                            <div class="tech"><span>Mechanism</span><span>Actuation</span></div>
+                            <div class="project-actions">
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Elliptical Carrom Board · INNOVATZ 2023</h3>
+                            <p>Invented and fabricated an elliptical carrom board to explore novel game mechanics and
+                                materials.</p>
+                            <div class="tech"><span>Fabrication</span><span>Design</span></div>
+                            <div class="project-actions">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDUCATION (kept short on main column) -->
+                <div class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Education</h2>
+                    <p><strong>Kongu Engineering College</strong> — B.E. Mechatronics (CGPA: 8.51)</p>
+                    <p><strong>Vivekanandha Vidhyalaya</strong> — HSC and SSLC</p>
+                </div>
+
+                <!-- CERTIFICATE -->
+                <div id="certificate" class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Certificates</h2>
+                    <div style="margin-top:12px">
+                        <h4 style="margin:0">SolidWorks CAD Design</h4>
+                        <p style="color:var(--muted);margin:8px 0 12px 0;font-size:14px">Proficient in SolidWorks for 3D
+                            modeling, assembly design, and producing manufacturing drawings. Able to convert concepts
+                            into parametric models and prepare designs ready for fabrication and simulation.</p>
+
+                        <h4 style="margin:0">Oracle APEX Cloud Developer</h4>
+                        <p style="color:var(--muted);margin:8px 0 0 0;font-size:14px">Certified in Oracle APEX low-code
+                            cloud development—building data-driven, responsive applications with SQL/PLSQL integration
+                            and cloud deployment practices.</p>
+                    </div>
+                </div>
+
+                <!-- WORKSHOPS -->
+                <div class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Workshops</h2>
+                    <p style="color:var(--muted);margin:0">✓ Industrial Manipulator &amp; Mobile Robots</p>
+                    <p style="color:var(--muted);margin:0">✓ The Robo Sumo </p>
+                    <p style="color:var(--muted);margin:0">✓ Autonomous Vehicles </p>
+                    <p style="color:var(--muted);margin:0">✓ Build Your Own Generative AI Model</p>
+                </div>
+
+                <!-- CONTACT INFO -->
+                <div class="card reveal" style="margin-top:16px">
+                    <h2 class="section-title">Contact</h2>
+                    <p style="color:var(--muted);margin:0">Email: <a
+                            href="mailto:bhuvaneshwarie.23mts@kongu.edu">bhuvaneshwarie.23mts@kongu.edu</a></p>
+                    <p style="color:var(--muted)">LinkedIn: <a
+                            href="https://www.linkedin.com/feed/update/urn:li:activity:7291723531023757312/"
+                            target="_blank" rel="noopener">Profile</a></p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section id="contact" class="card reveal" style="margin-top:22px">
+            <h2 class="section-title">Contact Me</h2>
+            <p style="color:var(--muted);margin-top:6px">Send a message</p>
+
+            <!-- Replace FORM_ENDPOINT with your Formspree endpoint (optional). If left as '#' the form will fallback to mailto:. -->
+            <form id="contactForm" class="contact" action="#" method="POST"
+                onsubmit="return handleContactSubmit(event)">
+                <div class="form-row">
+                    <div class="col"><input type="text" id="name" name="name" placeholder="Your name" required></div>
+                    <div class="col"><input type="email" id="email" name="email" placeholder="Your email" required>
+                    </div>
+                </div>
+                <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <button type="submit" class="btn" style="padding:10px 16px">Send Message</button>
+                    <div id="formStatus" style="color:var(--muted);font-size:14px"></div>
+                </div>
+            </form>
+
+        </section>
+
+        <footer>
+            © 2025 Bhuvaneshwari E • Built with care
+        </footer>
+
+    </div>
+
+    <script>
+        // reveal on scroll
+        const reveals=document.querySelectorAll('.reveal');
+        const io=new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if(e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, {threshold: 0.08});
+        reveals.forEach(r => io.observe(r));
+
+        // contact form handler
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+            const name=document.getElementById('name').value.trim();
+            const email=document.getElementById('email').value.trim();
+            const message=document.getElementById('message').value.trim();
+            const status=document.getElementById('formStatus');
+
+            if(!name||!email||!message) {status.textContent='Please fill all fields.'; return false;}
+
+            // If you have a Formspree endpoint, replace action="#" with your endpoint and uncomment the fetch block below.
+            const formAction=document.getElementById('contactForm').action;
+            if(formAction&&formAction!=='#')
+            {
+                // submit to Formspree (or other endpoint)
+                try
+                {
+                    const res=await fetch(formAction, {method: 'POST', body: new FormData(document.getElementById('contactForm'))});
+                    if(res.ok) {status.textContent='Message sent — thank you!'; document.getElementById('contactForm').reset();}
+                    else {status.textContent='Error sending message. Try email instead.';}
+                } catch(err)
+                {
+                    status.textContent='Network error — try email directly.';
+                }
+            } else
+            {
+                // fallback: open mail client with prefilled subject & body
+                const mailto=`mailto:bhuvaneshwarie.23mts@kongu.edu?subject=${encodeURIComponent('Portfolio contact from '+name)}&body=${encodeURIComponent(message+"\\n\\nFrom: "+name+" <"+email+">")}`;
+                window.location.href=mailto;
+                status.textContent='Opening email client...';
+            }
+            return false;
+        }
+
+        // small UX: highlight nav active based on scroll
+        const sections=document.querySelectorAll('main, #about, #skills, #projects, #contact');
+        const navlinks=document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            let fromTop=window.scrollY+120;
+            navlinks.forEach(link => {
+                const ref=document.querySelector(link.getAttribute('href'));
+                if(!ref) return;
+                if(ref.offsetTop<=fromTop&&ref.offsetTop+ref.offsetHeight>fromTop)
+                {
+                    link.style.color='var(--accent)';
+                } else
+                {
+                    link.style.color='var(--muted)';
+                }
+            });
+        });
+
+        // small keyboard accessibility for "View Project" placeholders (optional)
+        document.querySelectorAll('.project-actions a').forEach(a => {
+            a.addEventListener('click', (ev) => { /* link placeholder - replace with real links */});
+        });
+    </script>
+</body>
+
+</html>
